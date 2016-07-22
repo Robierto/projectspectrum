@@ -47,11 +47,15 @@ public class Splatter : MonoBehaviour {
 
 		GameObject _clone = Instantiate(splatterPrefab, transform.position, transform.rotation) as GameObject;
 		MeshRenderer[] renderers = _clone.GetComponentsInChildren<MeshRenderer>();
+
 		foreach (MeshRenderer mr in renderers)
 		{
 			mr.material.color = colorToUse;
 		}
+
 		_clone.GetComponent<Rigidbody>().AddExplosionForce(splatterForce, _clone.transform.position, splatterRadius);
+
 		Destroy(_clone, 8.0f);
+		Destroy(gameObject, 1.0f);
 	}
 }

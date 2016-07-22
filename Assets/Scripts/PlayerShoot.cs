@@ -26,7 +26,6 @@ public class PlayerShoot : MonoBehaviour {
 			GameObject _clone = Instantiate (bulletPrefabs [0], primaryFirePoint.position, primaryFirePoint.rotation) as GameObject;
 			_clone.GetComponent<SmearEffect>().enabled = true;
 			_clone.GetComponent<Rigidbody>().AddForce(primaryFirePoint.transform.forward * primaryFireForce, ForceMode.Impulse);
-			Destroy (_clone, 10.0f);
 		}
 
 		if (Input.GetButtonDown ("Fire2")) 
@@ -34,7 +33,6 @@ public class PlayerShoot : MonoBehaviour {
 			GameObject _clone = Instantiate (bulletPrefabs [1], secondaryFirePoint.position, secondaryFirePoint.rotation) as GameObject;
 			_clone.GetComponent<SmearEffect>().enabled = true;
 			_clone.GetComponent<Rigidbody>().AddForce(secondaryFirePoint.transform.forward * secondaryFireForce, ForceMode.Impulse);
-			Destroy(_clone, 10.0f);
 		}
 	}
 }
