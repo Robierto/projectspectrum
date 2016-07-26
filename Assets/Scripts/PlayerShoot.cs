@@ -11,6 +11,7 @@ public class PlayerShoot : MonoBehaviour {
 	public float primaryFireForce = 10.0f;
 	public float secondaryFireForce = 10.0f;
 
+	public int maxAmmo;
 	public int ammo = 10;
 
 	public Material tankMaterial;
@@ -19,6 +20,7 @@ public class PlayerShoot : MonoBehaviour {
 	void Start() {
 		//Color redTank = Color.red;
 		//tankMaterial.SetColor ("_EmissionColor", redTank);
+		maxAmmo = ammo;
 	}
 	
 	// Update is called once per frame

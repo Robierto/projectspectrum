@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject player;
 	public Transform spawnPoint;
 	public PlayerShoot shootManager;
+	public Slider HPSlider;
+	public Slider AmmoSlider;
 
 	[SerializeField]
 	private int maxHealth = 100;
@@ -31,7 +33,9 @@ public class GameManager : MonoBehaviour {
 	void Update() 
 	{
 		debugHPText.text = "HP: " + currentHealth + "/" + maxHealth;
+		HPSlider.value = (1.0f / maxHealth) * currentHealth;
 		debugAmmoText.text = "AMMO: " + shootManager.ammo;
+		AmmoSlider.value = (1.0f / shootManager.maxAmmo) * shootManager.ammo;
 
 		if (currentHealth <= 0)
 			Die ();
