@@ -40,11 +40,17 @@ public class PlayerShoot : MonoBehaviour {
 			_clone.GetComponent<SmearEffect>().enabled = true;
 			_clone.GetComponent<Rigidbody>().AddForce(secondaryFirePoint.transform.forward * secondaryFireForce, ForceMode.Impulse);
 		}
+
+		// Cheat because im lazy
+		if (Input.GetKeyDown (KeyCode.P))
+			ammo = 500;
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Ammo")
+		if (other.tag == "Ammo") 
+		{
 			ammo += other.GetComponent<Ammo> ().ammoValue;
+		}
 	}
 }
