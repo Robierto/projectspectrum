@@ -72,9 +72,13 @@ public class WallDestruction : MonoBehaviour {
 		}
 			
 		destroyedWall.SetActive (true);
-
+		Invoke ("SetInactive", 5.0f);
 		Debug.Log("Puzzle Solved!!");
 	}
 
+	void SetInactive()
+	{
+		gameObject.SetActive (false);
+	}
 }
 

@@ -21,28 +21,30 @@ public class MovingPlatform : MonoBehaviour {
 		
 
 		newPosition = movingPlatform.position;
+		InvokeRepeating("Startmovement", 0, resetTime);
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
 		movingPlatform.position = Vector3.Lerp (movingPlatform.position, newPosition, smooth * Time.deltaTime);	
-		Startmovement ();
+
 	}
 
 	void ChangeTarget()
 	{
-		if (currentState == "Moving To Position 2") {
-			currentState = "Moving To Position 1";
+
+		if (currentState == "") {
+			currentState = "Moving To Position 2";
 			newPosition = position2.position;
 		} else if (currentState == "Moving To Position 1") {
 			currentState = "Moving To Position 2";
 			newPosition = position1.position;
-		} else if (currentState == "") {
-			currentState = "Moving To Position 2";
+		} else if (currentState == "Moving To Position 2") {
+			currentState = "Moving To Position 1";
 			newPosition = position2.position;
 		}
-		Invoke ("ChangeTarget", resetTime);
+		//Invoke ("ChangeTarget", resetTime);
 	}
 	void Startmovement()
 	{
